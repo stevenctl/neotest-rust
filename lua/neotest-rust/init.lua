@@ -193,7 +193,7 @@ function adapter.results(spec, result, tree)
     parser:parse(data)
 
     local testcases
-    if #handler.root.testsuites.testsuite.testcase == 0 then
+    if not handler.root.testsuites.testsuite.testcase or #handler.root.testsuites.testsuite.testcase == 0 then
         testcases = { handler.root.testsuites.testsuite.testcase }
     else
         testcases = handler.root.testsuites.testsuite.testcase
